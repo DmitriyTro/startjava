@@ -12,10 +12,10 @@ public class Cycle {
         int result = 0;
         do {
             result = result + b;
-            if(result % 2 != 0) {
+            if (result % 2 != 0) {
                 System.out.println(result);
             }
             b++;
-        } while(b <= 20);
+        } while (b <= 20);
     }
 }
