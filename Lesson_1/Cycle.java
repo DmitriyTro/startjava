@@ -16,6 +16,6 @@ public class Cycle {
                 System.out.println(result);
             }
             b++;
-        } while(b <=20);
+        } while(b <= 20);
     }
 }
