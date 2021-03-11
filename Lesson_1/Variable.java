@@ -8,12 +8,13 @@ public class Variable {
         double ram = 16;
         char sym = 'I';
         boolean isGoodComputer = true;
-            System.out.println("CPU cores: " + cpuCores);
-            System.out.println("GPU memory: " + gpuMemory);
-            System.out.println("Lenght: " + lenght);
-            System.out.println("Height: " + height);
-            System.out.println("Weight: " + weight);
-            System.out.println("Marker: " + sym);
-            System.out.println("is good? " + isGoodComputer);
+        
+        System.out.println("CPU cores: " + cpuCores);
+        System.out.println("GPU memory: " + gpuMemory);
+        System.out.println("Lenght: " + lenght);
+        System.out.println("Height: " + height);
+        System.out.println("Weight: " + weight);
+        System.out.println("Marker: " + sym);
+        System.out.println("is good? " + isGoodComputer);
     }
 }

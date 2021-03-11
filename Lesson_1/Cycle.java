@@ -3,19 +3,21 @@ public class Cycle {
         for (int i = 0; i <= 20; i++) {
             System.out.println(i);
         }
+
         int a = 6;
         while (a >= -6) {
             System.out.println(a);
-        a--;
+            a -= 2;
         }
+
         int b = 10;
-        int result = 0;
+        int sum = 0;
         do {
-            result = result + b;
-            if (result % 2 != 0) {
-                System.out.println(result);
+            if(b % 2 != 0) {
+                sum += b;
             }
             b++;
         } while (b <= 20);
+        System.out.println(sum);
     }
 }

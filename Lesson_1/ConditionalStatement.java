@@ -4,19 +4,23 @@ public class ConditionalStatement {
         if (age > 20) {
             System.out.println("Adult!");
         }
+
         boolean isGenderMale = true;
         if (isGenderMale) {
             System.out.println("Male!");
         }
+
         if (!isGenderMale) {
             System.out.println("Woman!");
         }
+
         double height = 1.50;
         if (height < 1.80) {
             System.out.println("Low!");
         } else {
             System.out.println("High!");
         }
+        
         char firstLetterName = 'A';
         if (firstLetterName == 'M') {
             System.out.println("Yes");
