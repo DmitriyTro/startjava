@@ -8,7 +8,7 @@ public class Variable {
         double ram = 16;
         char sym = 'I';
         boolean isGoodComputer = true;
-        
+
         System.out.println("CPU cores: " + cpuCores);
         System.out.println("GPU memory: " + gpuMemory);
         System.out.println("Lenght: " + lenght);

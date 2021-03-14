@@ -17,7 +17,6 @@ public class MyFirstGame {
                 playerNumber++;
             }
         }
-
         System.out.println("Вы победили!");
     }
 }
