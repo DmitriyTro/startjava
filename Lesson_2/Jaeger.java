@@ -18,12 +18,38 @@ public class Jaeger {
         this.speed = speed;
         this.strength = strength;
         this.armor = armor;
-        System.out.println("Егерь " + modelName + "," + " марки: " + mark + " и производства: " + origin + "," + " имеет характеристики: ");
-        System.out.println("Высота: " + height);
-        System.out.println("Вес: " + weight);
-        System.out.println("Скорость: " + speed);
-        System.out.println("Сила: " + strength);
-        System.out.println("Броня: " + armor);
+    }
+
+    public String getModelName() {
+        return this.modelName;
+    }
+
+    public int getMark() {
+        return this.mark;
+    }
+
+    public String getOrigin() {
+        return this.origin;
+    }
+
+    public float getHeight() {
+        return this.height;
+    }
+
+    public float getWeight() {
+        return this.weight;
+    }
+
+    public int getSpeed() {
+        return this.speed;
+    }
+
+    public int getStrength() {
+        return this.strength;
+    }
+
+    public int getArmor() {
+        return this.armor;
     }
 
     public boolean drift() {

@@ -10,7 +10,7 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public void startGame() {
+    public void start() {
         Scanner scanner = new Scanner(System.in);
         int compNumber = (int) (Math.random() * 101);
 
