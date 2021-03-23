@@ -21,7 +21,7 @@ public class Person {
         return true;
     }
 
-    String speak() {
+    void speak() {
         System.out.println("Вы говорите.");
     }
 
