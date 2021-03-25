@@ -1,4 +1,4 @@
-package com.startjava.lesson_2.game;
+package com.startjava.lesson_2_3.game;
 
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ public class GuessNumberTest {
             do {
                 System.out.print("Хотите продолжить? [Yes/No]: ");
                 answer = scanner.next();
-            } while (answer.equals("Yes") && answer.equals("No"));
+            } while (!answer.equals("Yes") && !answer.equals("No"));
         } while (answer.equals("Yes"));
     }
 }
