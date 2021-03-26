@@ -50,9 +50,10 @@ public class GuessNumber {
         if (player.getNumber() == compNumber) {
             System.out.println("Игрок " + player.getName() + ", угадал число: " + compNumber + " c " + player.getAttempt() + " попытки!");
             isCheck = true;
+        } else {
+            String compare = player.getNumber() > compNumber ? "больше" : "меньше";
+            System.out.println("Игрок: " + player.getName() + " ввел число " + compare  + " того, что загадал компьютер.");
         }
-        String compare = player.getNumber() > compNumber ? "больше" : "меньше";
-        System.out.println("Игрок: " + player.getName() + " ввел число " + compare  + " того, что загадал компьютер.");
         return isCheck;
     }
 
