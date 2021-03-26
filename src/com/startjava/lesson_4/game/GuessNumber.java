@@ -9,8 +9,8 @@ public class GuessNumber {
 
     private Player playerOne;
     private Player playerTwo;
-    private int compNumber;
-    private int attempt = 0;
+
+    private int compNumber = (int) (Math.random() * 101);
 
     public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
@@ -18,72 +18,61 @@ public class GuessNumber {
     }
 
     public void start() {
-        compNumber = (int) (Math.random() * 101);
-
-        while (attempt != 10) {
-            System.out.println("Попытка: " + (attempt + 1));
-
-            if (addAttempt(playerOne)) {
+        do {
+            if (makeMove(playerOne) || makeMove(playerTwo)) {
                 break;
             }
+        } while (true);
 
-            if (addAttempt(playerTwo)) {
-                break;
-            }
-            attempt++;
-        }
-        gameResult(playerOne);
-        gameResult(playerTwo);
+        playerNumbers(playerOne);
+        playerNumbers(playerTwo);
 
         setUp(playerOne);
         setUp(playerTwo);
     }
-    private boolean addAttempt(Player player) {
+    private boolean makeMove(Player player) {
+        boolean isContinue = false;
         inputNumber(player);
-        checkNumber(player);
-        return player.isWin();
+        if (checkNumber(player) || gameResult(player)) {
+            isContinue = true;
+        }
+        return isContinue;
     }
 
     private void inputNumber(Player player) {
         System.out.print(player.getName() + ", введите число: ");
-        player.setNumber(attempt, scanner.nextInt());
+        player.setNumber(scanner.nextInt());
+        System.out.println("Попытка игрока " + player.getName() + " номер: "  + (player.getAttempt()));
     }
 
-    private void checkNumber(Player player) {
+    private boolean checkNumber(Player player) {
+        boolean isCheck = false;
         if (player.getNumber() == compNumber) {
-            showWinner(player);
-            player.setIsWin(true);
-        } else if (player.getNumber() < compNumber) {
-            System.out.println(player.getName() + ", ваше число меньше, чем загадал компьютер.");
-        } else if (player.getNumber() > compNumber) {
-            System.out.println(player.getName() + ", выше число больше, чем загадал компьютер.");
+            System.out.println("Игрок " + player.getName() + ", угадал число: " + compNumber + " c " + player.getAttempt() + " попытки!");
+            isCheck = true;
         }
-        if (attempt == 9 && !player.isWin()) {
+        String compare = player.getNumber() > compNumber ? "больше" : "меньше";
+        System.out.println("Игрок: " + player.getName() + " ввел число " + compare  + " того, что загадал компьютер.");
+        return isCheck;
+    }
+
+    private boolean gameResult(Player player) {
+        boolean isGameOver = false;
+        if (player.getAttempt() >= 10) {
             System.out.println(player.getName() + ", ваши попытки закончились!");
+            isGameOver = true;
         }
+        return isGameOver;
     }
 
-    private void showWinner(Player player) {
-        System.out.println(player.getName() + ", победил!");
-        System.out.println(player.getName() + ", угадал число: " + player.getNumber() + " c " + (attempt + 1) + " попытки!");
-    }
-
-    private void gameResult(Player player) {
-        if (attempt == 10) {
-            playerNumbers(player, attempt);
-        } else {
-            playerNumbers(player, attempt + 1);
+    private void playerNumbers(Player player) {
+        for (int number : player.getNumbers()) {
+            System.out.print(number + " ");
         }
-    }
-
-    private void playerNumbers(Player player, int attempt) {
-        System.out.print(player.getName() + " ");
-        int[] playerAttempts = player.getNumbers(attempt);
-        System.out.println(Arrays.toString(playerAttempts));
+        System.out.println(" ");
     }
 
     private void setUp(Player player) {
-        Arrays.fill(player.getNumbers(attempt), 0, attempt, 0);
-        player.setIsWin(false);
+        Arrays.fill(player.getNumbers(), 0, player.getAttempt(), 0);
     }
 }
