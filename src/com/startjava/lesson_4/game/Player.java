@@ -26,10 +26,15 @@ public class Player {
 
     public void setNumber(int number) {
         numbers[attempt] = number;
-        attempt ++;
+        attempt++;
     }
 
     public int[] getNumbers() {
         return Arrays.copyOf(numbers, attempt);
+    }
+
+    public void clear() {
+        Arrays.fill(numbers, 0, attempt + 1, 0);
+        attempt = 0;
     }
 }
