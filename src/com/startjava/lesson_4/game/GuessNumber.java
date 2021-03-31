@@ -16,7 +16,6 @@ public class GuessNumber {
     }
 
     public void start() {
-
         secretNumber = (int) (Math.random() * 101);
         System.out.println("У вас 10 попыток");
 
@@ -32,6 +31,7 @@ public class GuessNumber {
         playerOne.clear();
         playerTwo.clear();
     }
+
     private boolean makeMove(Player player) {
         boolean isContinue = false;
         inputNumber(player);
